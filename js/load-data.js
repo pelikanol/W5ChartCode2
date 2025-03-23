@@ -8,7 +8,7 @@ d3.csv("../data/chinameat.csv", row => ({
     console.log("Parsed data:", data); // Check if 'year' is being parsed correctly
     defineScales(data);
     drawDonutCharts(data);
-    // drawStackedBars(data);
+    drawStackedBars(data);
     // addLegend();
   });
   
