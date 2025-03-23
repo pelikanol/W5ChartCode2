@@ -14,12 +14,14 @@ const drawDonutCharts = (data) => {
 
     const chartSpacing = (width - margin.left - margin.right) / years.length;
     const chartOffset = chartSpacing / 2;
+    console.log(margin.left, margin.right, chartSpacing, chartOffset);
 
     years.forEach((year, index) => {
 
         const donutContainer = donutContainers
         .append("g")
         .attr("transform", `translate(${chartOffset + index * chartSpacing}, ${innerHeight / 2})`);
+        
         
         const yearData = data.find(d => d.year === year);
 
@@ -77,6 +79,14 @@ const drawDonutCharts = (data) => {
           .attr("fill-opacity", d => d.percentage< 0.05 ? 0 : 1)                       
           .style("font-size", "16px")
           .style("font-weight", 500);
+
+    donutContainer
+      .append("text")
+        .text(year)
+        .attr("text-anchor", "middle")
+        .attr("dominant-baseline", "middle")
+        .style("font-size", "24px")
+        .style("font-weight", 500);
     });
 };
 
